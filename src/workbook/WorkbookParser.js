@@ -6,18 +6,15 @@ import Workbook from "./Workbook.js";
 export default class WorkbookParser extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { file: undefined, workbookSet: false };
-    this.file = undefined;
-    this.workbook = undefined;
+    this.state = { file: undefined, workbook: undefined };
     this.add = this.add.bind(this);
     this.loaded = this.loaded.bind(this);
     this._setWorkbook = this._setWorkbook.bind(this);
   }
 
   _setWorkbook(fileName, xmlDoc) {
-    this.workbook = new Workbook(fileName, xmlDoc);
-    console.log(this.workbook);
-    this.setState({ workbookSet: true });
+    let workbook = new Workbook(fileName, xmlDoc);
+    this.setState({ workbook: workbook });
   }
 
   add(fileObject) {
@@ -38,18 +35,20 @@ export default class WorkbookParser extends React.Component {
   }
 
   render() {
-    const workbookSet = this.state.workbookSet;
+    const workbook = this.state.workbook;
+
     let workbookDiv;
 
-    if (workbookSet) {
-      workbookDiv = "Workbook uploaded";
+    if (typeof workbook !== "undefined") {
+      console.log(workbook);
+      workbookDiv = workbook.fileName;
     } else {
       workbookDiv = "Upload a Workbook";
     }
     return (
       <div>
         <FileUpload addEvent={this.add} loadedEvent={this.loaded} />
-        <div>{workbookDiv}</div>
+        <p>{workbookDiv}</p>
       </div>
     );
   }

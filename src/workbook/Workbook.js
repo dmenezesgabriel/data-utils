@@ -108,4 +108,8 @@ export default class Workbook {
   get worksheets() {
     return this._worksheets;
   }
+
+  get fileName() {
+    return this._fileName;
+  }
 }
