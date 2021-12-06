@@ -8,34 +8,15 @@ export default class WorkbookParser extends React.Component {
     super(props);
     this.state = { file: undefined };
     this.file = undefined;
+    this.workbook = undefined;
     this.add = this.add.bind(this);
     this.loaded = this.loaded.bind(this);
-    this._parseFile = this._parseFile.bind(this);
+    this._setWorkbook = this._setWorkbook.bind(this);
   }
 
-  _parseFile(fileName, xmlDoc) {
-    let workbook = new Workbook(fileName, xmlDoc);
-    console.log(workbook);
-
-    for (let dashboardIndex in workbook.dashboards) {
-      let dashboard = workbook.dashboards[dashboardIndex];
-      console.log(dashboard);
-    }
-
-    for (let worksheetIndex in workbook.worksheets) {
-      let worksheet = workbook.worksheets[worksheetIndex];
-      console.log(worksheet);
-    }
-
-    for (let datasourceIndex in workbook.datasources) {
-      let datasource = workbook.datasources[datasourceIndex];
-      console.log(datasource);
-      for (let connectionIndex in datasource.connections) {
-        let connection = datasource.connections[connectionIndex];
-        console.log(connection);
-        connection.dbName = "sample-testing";
-      }
-    }
+  _setWorkbook(fileName, xmlDoc) {
+    this.workbook = new Workbook(fileName, xmlDoc);
+    console.log(this.workbook);
   }
 
   add(fileObject) {
@@ -47,11 +28,12 @@ export default class WorkbookParser extends React.Component {
     console.log("File loaded");
     const reader = new FileReader();
     const parser = new DOMParser();
-    let xmlDoc = reader.readAsText(this.file, "UTF-8");
+
     reader.onload = (event) => {
       let xmlDoc = parser.parseFromString(event.target.result, "text/xml");
-      this._parseFile(this.file.name, xmlDoc);
+      this._setWorkbook(this.file.name, xmlDoc);
     };
+    reader.readAsText(this.file, "UTF-8");
   }
 
   render() {
