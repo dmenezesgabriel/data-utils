@@ -3,7 +3,7 @@ import React from "react";
 import FileUpload from "../file/FileUpload.js";
 import Workbook from "./Workbook.js";
 
-export default class WorkbookParser extends React.Component {
+export default class WorkbookView extends React.Component {
   constructor(props) {
     super(props);
     this.state = { file: undefined, xmlDoc: undefined };

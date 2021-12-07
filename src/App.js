@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import WorkbookParser from "./workbook/WorkbookParser.js";
+import WorkbookView from "./workbook/WorkbookView.js";
 
 import "./App.css";
 
@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <img src={logo} className="App-logo" alt="logo" />
       <main>
-        <WorkbookParser />
+        <WorkbookView />
       </main>
     </div>
   );

@@ -29,18 +29,13 @@ export default class Workbook extends React.Component {
     let datasourceIndex = this._prepareDatasourceIndex(datasources);
     let worksheets = this._prepareWorksheets(workbookXML);
     this._checkFieldsUsage(worksheets, datasourceIndex);
-    this.setState(
-      {
-        fileName: fileName,
-        workbookXML: workbookXML,
-        dashboards: dashboards,
-        datasources: datasources,
-        worksheets: worksheets,
-      },
-      () => {
-        console.log(this.state);
-      }
-    );
+    this.setState({
+      fileName: fileName,
+      workbookXML: workbookXML,
+      dashboards: dashboards,
+      datasources: datasources,
+      worksheets: worksheets,
+    });
   }
 
   _prepareDashboards(workbookXML) {
