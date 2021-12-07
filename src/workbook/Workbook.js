@@ -28,7 +28,7 @@ export default class Workbook extends React.Component {
     let datasources = this._prepareDatasources(workbookXML);
     let datasourceIndex = this._prepareDatasourceIndex(datasources);
     let worksheets = this._prepareWorksheets(workbookXML);
-    this._checkFieldsUsage(worksheets, datasourceIndex);
+    // this._checkFieldsUsage(worksheets, datasourceIndex);
     this.setState({
       fileName: fileName,
       workbookXML: workbookXML,
@@ -58,8 +58,7 @@ export default class Workbook extends React.Component {
     if (!datasourceElements) return [];
 
     for (let datasource of datasourceElements) {
-      let datasourceXML = new Datasource(datasource);
-      datasources.push(datasourceXML);
+      datasources.push(datasource);
     }
     return datasources;
   }
@@ -125,7 +124,7 @@ export default class Workbook extends React.Component {
 
     if (datasources) {
       return datasources.map((datasource, datasourceIndex) => {
-        return <p key={datasourceIndex}>{datasource.name}</p>;
+        return <Datasource key={datasourceIndex} datasource={datasource} />;
       });
     } else {
       return "";

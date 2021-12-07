@@ -1,15 +1,29 @@
 import Connection from "../connection/Connection.js";
 import Column from "../column/Column.js";
+import React from "react";
 
-export default class Datasource {
-  constructor(datasourceXML, fileName = null) {
-    this._fileName = fileName;
-    this._datasourceXML = datasourceXML;
-    this._name = this._datasourceXML.getAttribute("name");
-    this._version = this._datasourceXML.getAttribute("version");
-    this._caption = this._datasourceXML.getAttribute("caption");
-    this._connections = this._prepareConnections(this._datasourceXML);
-    this._columns = this._prepareColumns(this._datasourceXML);
+export default class Datasource extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      datasourceXML: null,
+      name: null,
+      version: null,
+      caption: null,
+      connections: null,
+      columns: null,
+    };
+  }
+
+  componentDidMount() {
+    this.setState((state, props) => ({
+      datasourceXML: this.props.datasource,
+      name: this.props.datasource.getAttribute("name"),
+      version: this.props.datasource.getAttribute("version"),
+      caption: this.props.datasource.getAttribute("caption"),
+      connections: this._prepareConnections(this.props.datasource),
+      columns: this._prepareColumns(this.props.datasource),
+    }));
   }
 
   _prepareConnections(datasourceXML) {
@@ -44,5 +58,15 @@ export default class Datasource {
 
   get columns() {
     return this._columns;
+  }
+
+  render() {
+    const datasourceName = this.state.name;
+
+    if (datasourceName) {
+      return <div>{datasourceName}</div>;
+    } else {
+      return "";
+    }
   }
 }
