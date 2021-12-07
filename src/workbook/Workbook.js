@@ -18,24 +18,13 @@ export default class Workbook extends React.Component {
   }
 
   componentDidMount() {
-    this._init();
-  }
-
-  _init() {
-    let fileName = this.props.workbook.file.name;
-    let workbookXML = this.props.workbook.xmlDoc;
-    let dashboards = this._prepareDashboards(workbookXML);
-    let datasources = this._prepareDatasources(workbookXML);
-    let datasourceIndex = this._prepareDatasourceIndex(datasources);
-    let worksheets = this._prepareWorksheets(workbookXML);
-    // this._checkFieldsUsage(worksheets, datasourceIndex);
-    this.setState({
-      fileName: fileName,
-      workbookXML: workbookXML,
-      dashboards: dashboards,
-      datasources: datasources,
-      worksheets: worksheets,
-    });
+    this.setState((state, props) => ({
+      fileName: this.props.workbook.file.name,
+      workbookXML: this.props.workbook.xmlDoc,
+      dashboards: this._prepareDashboards(this.props.workbook.xmlDoc),
+      datasources: this._prepareDatasources(this.props.workbook.xmlDoc),
+      worksheets: this._prepareWorksheets(this.props.workbook.xmlDoc),
+    }));
   }
 
   _prepareDashboards(workbookXML) {
@@ -63,18 +52,6 @@ export default class Workbook extends React.Component {
     return datasources;
   }
 
-  _prepareDatasourceIndex(datasources) {
-    // TODO
-    // Replace for a WeakRef "dict"
-    let datasourceIndexes = {};
-    for (let datasourceIndex in datasources) {
-      let datasource = datasources[datasourceIndex];
-
-      datasourceIndexes[datasource.name] = datasource;
-    }
-    return datasourceIndexes;
-  }
-
   _prepareWorksheets(workbookXML) {
     let worksheets = [];
 
@@ -86,6 +63,18 @@ export default class Workbook extends React.Component {
       worksheets.push(worksheet);
     }
     return worksheets;
+  }
+
+  _prepareDatasourceIndex(datasources) {
+    // TODO
+    // Replace for a WeakRef "dict"
+    let datasourceIndexes = {};
+    for (let datasourceIndex in datasources) {
+      let datasource = datasources[datasourceIndex];
+
+      datasourceIndexes[datasource.name] = datasource;
+    }
+    return datasourceIndexes;
   }
 
   _checkFieldsUsage(worksheets, datasourcesIndex) {
