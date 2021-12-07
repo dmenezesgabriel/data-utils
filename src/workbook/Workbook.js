@@ -46,8 +46,8 @@ export default class Workbook extends React.Component {
     let datasourceElements = workbookXML.getElementsByTagName("datasources")[0].children;
     if (!datasourceElements) return [];
 
-    for (let datasource of datasourceElements) {
-      datasources.push(datasource);
+    for (let datasourceXML of datasourceElements) {
+      datasources.push(datasourceXML);
     }
     return datasources;
   }
@@ -59,8 +59,7 @@ export default class Workbook extends React.Component {
     if (!worksheetElements) return [];
 
     for (let worksheetXML of worksheetElements) {
-      let worksheet = new Worksheet(worksheetXML);
-      worksheets.push(worksheet);
+      worksheets.push(worksheetXML);
     }
     return worksheets;
   }
@@ -110,11 +109,20 @@ export default class Workbook extends React.Component {
 
   render() {
     const datasources = this.state.datasources;
+    const worksheets = this.state.worksheets;
 
-    if (datasources) {
-      return datasources.map((datasource, datasourceIndex) => {
-        return <Datasource key={datasourceIndex} datasource={datasource} />;
-      });
+    if (datasources && worksheets) {
+      return (
+        <div>
+          {datasources.map((datasource, datasourceIndex) => {
+            return <Datasource key={datasourceIndex} datasource={datasource} />;
+          })}
+          {/* Worksheets */}
+          {worksheets.map((worksheet, worksheetIndex) => {
+            return <Worksheet key={worksheetIndex} worksheet={worksheet} />;
+          })}
+        </div>
+      );
     } else {
       return "";
     }

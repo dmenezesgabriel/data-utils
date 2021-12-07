@@ -1,8 +1,21 @@
-export default class Worksheet {
-  constructor(worksheetXML) {
-    this._worksheetXML = worksheetXML;
-    this._name = this._worksheetXML.getAttribute("name");
-    this._datasourceDependencies = this._prepareDatasourceDependencies(this._worksheetXML);
+import React from "react";
+
+export default class Worksheet extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      worksheetXML: null,
+      name: null,
+      datasourceDependencies: null,
+    };
+  }
+
+  componentDidMount() {
+    this.setState((state, props) => ({
+      datasourceXML: this.props.worksheet,
+      name: this.props.worksheet.getAttribute("name"),
+      datasourceDependencies: this._prepareDatasourceDependencies(this.props.worksheet),
+    }));
   }
 
   _prepareDatasourceDependencies(worksheetXML) {
@@ -23,11 +36,16 @@ export default class Worksheet {
     return datasourceDependencies;
   }
 
-  get name() {
-    return this._name;
-  }
-
-  get datasourceDependencies() {
-    return this._datasourceDependencies;
+  render() {
+    const worksheetName = this.state.name;
+    if (worksheetName) {
+      return (
+        <div>
+          <p>{this.state.name}</p>
+        </div>
+      );
+    } else {
+      return "";
+    }
   }
 }

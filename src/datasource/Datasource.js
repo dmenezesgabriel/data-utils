@@ -48,23 +48,17 @@ export default class Datasource extends React.Component {
     return columns;
   }
 
-  get name() {
-    return this._name;
-  }
-
-  get connections() {
-    return this._connections;
-  }
-
-  get columns() {
-    return this._columns;
-  }
-
   render() {
     const datasourceName = this.state.name;
 
     if (datasourceName) {
-      return <div>{datasourceName}</div>;
+      return (
+        <div>
+          <p>{this.state.name}</p>
+          <p>{this.state.version}</p>
+          <p>{this.state.caption}</p>
+        </div>
+      );
     } else {
       return "";
     }
