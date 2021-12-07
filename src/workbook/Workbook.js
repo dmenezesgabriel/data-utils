@@ -1,18 +1,46 @@
 import Datasource from "../datasource/Datasource.js";
 import Worksheet from "../worksheet/Worksheet.js";
+import React from "react";
 
-export default class Workbook {
+export default class Workbook extends React.Component {
   /**
   Class for writing tableau workbook files
    */
-  constructor(filename, xml) {
-    this._fileName = filename;
-    this._workbookXML = xml;
-    this._dashboards = this._prepareDashboards(this._workbookXML);
-    this._datasources = this._prepareDatasources(this._workbookXML);
-    this._datasourceIndex = this._prepareDatasourceIndex(this._datasources);
-    this._worksheets = this._prepareWorksheets(this._workbookXML);
-    this._checkFieldsUsage(this._worksheets, this._datasourceIndex);
+  constructor(props) {
+    super(props);
+    this.state = {
+      fileName: undefined,
+      workbookXML: undefined,
+      dashboards: undefined,
+      datasources: undefined,
+      worksheets: undefined,
+    };
+  }
+
+  componentDidMount() {
+    this._init();
+  }
+
+  _init() {
+    let fileName = this.props.workbook.file.name;
+    let workbookXML = this.props.workbook.xmlDoc;
+    let dashboards = this._prepareDashboards(workbookXML);
+    let datasources = this._prepareDatasources(workbookXML);
+    let datasourceIndex = this._prepareDatasourceIndex(datasources);
+    let worksheets = this._prepareWorksheets(workbookXML);
+    this._checkFieldsUsage(worksheets, datasourceIndex);
+    this.setState(
+      {
+        fileName: fileName,
+        workbookXML: workbookXML,
+        dashboards: dashboards,
+        datasources: datasources,
+        worksheets: worksheets,
+      },
+      () => {
+        console.log(this.state);
+      }
+    );
   }
 
   _prepareDashboards(workbookXML) {
@@ -97,19 +125,12 @@ export default class Workbook {
     document.body.removeChild(downloadAnchor);
   }
 
-  get datasources() {
-    return this._datasources;
-  }
-
-  get dashboards() {
-    return this._dashboards;
-  }
-
-  get worksheets() {
-    return this._worksheets;
-  }
-
-  get fileName() {
-    return this._fileName;
+  render() {
+    const fileName = this.props.workbook.file.name;
+    return (
+      <div>
+        <p>{fileName}</p>
+      </div>
+    );
   }
 }
