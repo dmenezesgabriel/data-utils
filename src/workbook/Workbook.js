@@ -125,7 +125,7 @@ export default class Workbook extends React.Component {
 
     if (datasources) {
       return datasources.map((datasource, datasourceIndex) => {
-        return <p>{datasource.name}</p>;
+        return <p key={datasourceIndex}>{datasource.name}</p>;
       });
     } else {
       return "";
