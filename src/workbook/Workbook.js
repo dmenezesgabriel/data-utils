@@ -9,11 +9,11 @@ export default class Workbook extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fileName: undefined,
-      workbookXML: undefined,
-      dashboards: undefined,
-      datasources: undefined,
-      worksheets: undefined,
+      fileName: null,
+      workbookXML: null,
+      dashboards: null,
+      datasources: null,
+      worksheets: null,
     };
   }
 
@@ -121,11 +121,14 @@ export default class Workbook extends React.Component {
   }
 
   render() {
-    const fileName = this.props.workbook.file.name;
-    return (
-      <div>
-        <p>{fileName}</p>
-      </div>
-    );
+    const datasources = this.state.datasources;
+
+    if (datasources) {
+      return datasources.map((datasource, datasourceIndex) => {
+        return <p>{datasource.name}</p>;
+      });
+    } else {
+      return "";
+    }
   }
 }
