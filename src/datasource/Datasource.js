@@ -61,7 +61,7 @@ export default class Datasource extends React.Component {
 
     if (datasourceName) {
       return (
-        <div>
+        <section>
           <h3>Datasource</h3>
           <form action="">
             <div>
@@ -102,7 +102,7 @@ export default class Datasource extends React.Component {
               })}
             </tbody>
           </table>
-        </div>
+        </section>
       );
     } else {
       return null;

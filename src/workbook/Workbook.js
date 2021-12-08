@@ -123,7 +123,7 @@ export default class Workbook extends React.Component {
 
     if (datasources && worksheets) {
       return (
-        <div>
+        <section>
           <h2>{this.state.fileName}</h2>
           {datasources.map((datasource, datasourceIndex) => {
             return <Datasource key={datasourceIndex} datasource={datasource} />;
@@ -132,7 +132,7 @@ export default class Workbook extends React.Component {
           {worksheets.map((worksheet, worksheetIndex) => {
             return <Worksheet key={worksheetIndex} worksheet={worksheet} />;
           })}
-        </div>
+        </section>
       );
     } else {
       return null;
