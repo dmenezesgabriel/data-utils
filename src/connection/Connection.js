@@ -32,10 +32,16 @@ export default class Connection extends React.Component {
 
   render() {
     const connectionClass = this.state.className;
-    if (connectionClass) {
+    const dbName = this.state.dbName;
+
+    if (connectionClass && dbName) {
       return (
         <div>
-          <p>dbname: {this.state.dbName}</p>
+          <h4>Connection</h4>
+          <form action="">
+            <label htmlFor="dbName">DB Name: </label>
+            <input type="text" name="dbName" id="" value={this.state.dbName} />
+          </form>
         </div>
       );
     } else {

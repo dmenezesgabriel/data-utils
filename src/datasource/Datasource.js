@@ -52,13 +52,27 @@ export default class Datasource extends React.Component {
     if (datasourceName) {
       return (
         <div>
-          <p>{this.state.name}</p>
-          <p>{this.state.version}</p>
-          <p>{this.state.caption}</p>
+          <h3>Datasource</h3>
+          <form action="">
+            <div>
+              <div>
+                <label htmlFor="name">Name: </label>
+                <input type="text" name="name" id="" value={this.state.name} />
+              </div>
+              <div>
+                <label htmlFor="version">Version: </label>
+                <input type="text" name="version" id="" value={this.state.version} />
+              </div>
+              <div>
+                <label htmlFor="caption">Caption: </label>
+                <input type="text" name="caption" id="" value={this.state.caption} />
+              </div>
+            </div>
+          </form>
           {connections.map((connection, connectionIndex) => {
             return <Connection key={connectionIndex} connection={connection} />;
           })}
-          {/* Columns */}
+          <h4>Columns</h4>
           <table>
             <thead>
               <tr>
