@@ -13,10 +13,6 @@ export default class FileUpload extends React.Component {
       this.setState({ file: file }, () => {
         if (this.props.addEvent) {
           this.props.addEvent(this.state.file);
-
-          if (this.props.loadedEvent) {
-            this.props.loadedEvent();
-          }
         }
       });
     }

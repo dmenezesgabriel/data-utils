@@ -13,15 +13,16 @@ export default class WorkbookView extends React.Component {
   }
 
   add(fileObject) {
-    this.setState({ file: fileObject });
-    this.file = fileObject;
+    this.setState({ file: fileObject }, () => this.loaded());
   }
 
   loaded() {
     const reader = new FileReader();
     const parser = new DOMParser();
     const zip = new JSZip();
-    let type = this.file.name.split(".").slice(-1)[0];
+
+    const file = this.state.file;
+    let type = file.name.split(".").slice(-1)[0];
     console.log(type);
 
     if (type === "twbx") {
@@ -31,7 +32,7 @@ export default class WorkbookView extends React.Component {
       let xmlDoc = parser.parseFromString(event.target.result, "text/xml");
       this.setState({ xmlDoc: xmlDoc });
     };
-    reader.readAsText(this.file, "UTF-8");
+    reader.readAsText(file, "UTF-8");
   }
 
   render() {
@@ -47,7 +48,7 @@ export default class WorkbookView extends React.Component {
     } else {
       return (
         <div>
-          <FileUpload addEvent={this.add} loadedEvent={this.loaded} />
+          <FileUpload addEvent={this.add} />
         </div>
       );
     }
