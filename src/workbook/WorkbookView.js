@@ -47,14 +47,16 @@ export default class WorkbookView extends React.Component {
     const xmlDoc = this.state.xmlDoc;
     if (file && xmlDoc) {
       return (
-        <div>
+        <div className="container mx-auto px-4">
+          <h1>Workbook</h1>
           <FileUpload addEvent={this.add} loadedEvent={this.loaded} />
           <Workbook workbook={this.state} />
         </div>
       );
     } else {
       return (
-        <div>
+        <div className="container mx-auto px-4">
+          <h1>Workbook</h1>
           <FileUpload addEvent={this.add} />
         </div>
       );

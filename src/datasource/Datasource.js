@@ -1,5 +1,7 @@
 import Connection from "../connection/Connection.js";
 import Column from "../column/Column.js";
+import Details from "../layout/Details.js";
+
 import React from "react";
 
 export default class Datasource extends React.Component {
@@ -61,13 +63,7 @@ export default class Datasource extends React.Component {
 
     if (datasourceName) {
       return (
-        <details>
-          <summary>
-            <h3>Datasource - {datasourceName}</h3>
-            <span className="icon" role="img" aria-label="collapse">
-              👇
-            </span>
-          </summary>
+        <Details title={datasourceName}>
           <form action="">
             <div>
               <div>
@@ -109,7 +105,7 @@ export default class Datasource extends React.Component {
               </tbody>
             </table>
           </div>
-        </details>
+        </Details>
       );
     } else {
       return null;

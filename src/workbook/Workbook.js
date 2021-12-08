@@ -1,5 +1,7 @@
 import Datasource from "../datasource/Datasource.js";
 import Worksheet from "../worksheet/Worksheet.js";
+import Details from "../layout/Details.js";
+
 import React from "react";
 
 export default class Workbook extends React.Component {
@@ -126,28 +128,16 @@ export default class Workbook extends React.Component {
         <section>
           <h2 contentEditable="true">{this.state.fileName}</h2>
           <hr />
-          <details>
-            <summary>
-              <h3>Datasources</h3>
-              <span className="icon" role="img" aria-label="collapse">
-                👇
-              </span>
-            </summary>
+          <Details title="Datasources">
             {datasources.map((datasource, datasourceIndex) => {
               return <Datasource key={datasourceIndex} datasource={datasource} />;
             })}
-          </details>
-          <details>
-            <summary>
-              <h3>Worksheets</h3>
-              <span className="icon" role="img" aria-label="collapse">
-                👇
-              </span>
-            </summary>
+          </Details>
+          <Details title="Worksheets">
             {worksheets.map((worksheet, worksheetIndex) => {
               return <Worksheet key={worksheetIndex} worksheet={worksheet} />;
             })}
-          </details>
+          </Details>
         </section>
       );
     } else {

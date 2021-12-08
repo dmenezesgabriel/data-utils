@@ -1,12 +1,3 @@
-.App {
-  padding: 100px;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 details {
   user-select: none;
 }
@@ -40,7 +31,7 @@ td {
 
 .table-wrapper {
   display: inline-block;
-  height: 350px;
+  height: 3;
   overflow: auto;
 }
 
