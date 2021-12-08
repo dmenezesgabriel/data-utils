@@ -58,14 +58,30 @@ export default class Column extends React.Component {
     if (name) {
       return (
         <tr>
-          <td contentEditable="true">{this.state.name}</td>
-          <td contentEditable="true">{this.state.caption}</td>
-          <td contentEditable="true">{this.state.datatype}</td>
-          <td contentEditable="true">{this.state.role}</td>
-          <td contentEditable="true">{this.state.type}</td>
-          <td contentEditable="true">{this.state.calculation}</td>
-          <td contentEditable="true">{this.state.description}</td>
-          <td contentEditable="true">{this.state.usedIn}</td>
+          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
+            {this.state.name}
+          </td>
+          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
+            {this.state.caption}
+          </td>
+          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
+            {this.state.datatype}
+          </td>
+          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
+            {this.state.role}
+          </td>
+          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
+            {this.state.type}
+          </td>
+          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
+            {this.state.calculation}
+          </td>
+          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
+            {this.state.description}
+          </td>
+          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
+            {this.state.usedIn}
+          </td>
         </tr>
       );
     } else {

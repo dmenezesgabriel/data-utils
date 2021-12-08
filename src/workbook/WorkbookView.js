@@ -56,7 +56,6 @@ export default class WorkbookView extends React.Component {
     } else {
       return (
         <div className="container mx-auto px-4">
-          <h1>Workbook</h1>
           <FileUpload addEvent={this.add} />
         </div>
       );

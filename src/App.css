@@ -18,45 +18,7 @@ summary::-webkit-details-marker {
   display: none;
 }
 
-table,
-th,
-td {
-  text-align: left;
-  border: 1px solid black;
-}
-
-.table-wrapper {
-  display: inline-block;
-  height: 3;
-  overflow: auto;
-}
-
-table th {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-}
-
-/* == Just general styling, not relevant :) == */
-
 table {
-  border-collapse: collapse;
-}
-
-th {
-  background-color: #1976d2;
-  color: #fff;
-}
-
-th,
-td {
-  padding: 1em 0.5em;
-}
-
-table tr {
-  color: #212121;
-}
-
-table tr:nth-child(odd) {
-  background-color: #bbdefb;
+  table-layout: fixed;
+  width: 100%;
 }

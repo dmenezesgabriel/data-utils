@@ -84,27 +84,26 @@ export default class Datasource extends React.Component {
             return <Connection key={connectionIndex} connection={connection} />;
           })}
           <h4>Columns</h4>
-          <div className="table-wrapper">
-            <table>
-              <thead>
-                <tr>
-                  <th>Name</th>
-                  <th>Caption</th>
-                  <th>Datatype</th>
-                  <th>Role</th>
-                  <th>Type</th>
-                  <th>Calculation</th>
-                  <th>Description</th>
-                  <th>Used In</th>
-                </tr>
-              </thead>
-              <tbody>
-                {columns.map((column, columnIndex) => {
-                  return <Column key={columnIndex} column={column} />;
-                })}
-              </tbody>
-            </table>
-          </div>
+
+          <table className="table-fixed">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-2 text-xs text-gray-500">Name</th>
+                <th className="px-6 py-2 text-xs text-gray-500">Caption</th>
+                <th className="px-6 py-2 text-xs text-gray-500">Datatype</th>
+                <th className="px-6 py-2 text-xs text-gray-500">Role</th>
+                <th className="px-6 py-2 text-xs text-gray-500">Type</th>
+                <th className="px-6 py-2 text-xs text-gray-500">Calculation</th>
+                <th className="px-6 py-2 text-xs text-gray-500">Description</th>
+                <th className="px-6 py-2 text-xs text-gray-500">Used In</th>
+              </tr>
+            </thead>
+            <tbody className="bg-white">
+              {columns.map((column, columnIndex) => {
+                return <Column key={columnIndex} column={column} />;
+              })}
+            </tbody>
+          </table>
         </Details>
       );
     } else {
