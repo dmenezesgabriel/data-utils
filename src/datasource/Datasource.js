@@ -16,6 +16,16 @@ export default class Datasource extends React.Component {
   }
 
   componentDidMount() {
+    this._setUpdate();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.datasource !== this.props.datasource) {
+      this._setUpdate();
+    }
+  }
+
+  _setUpdate() {
     this.setState((state, props) => ({
       datasourceXML: this.props.datasource,
       name: this.props.datasource.getAttribute("name"),

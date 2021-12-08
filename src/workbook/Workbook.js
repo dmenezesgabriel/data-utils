@@ -18,6 +18,16 @@ export default class Workbook extends React.Component {
   }
 
   componentDidMount() {
+    this._setUpdate();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.workbook !== this.props.workbook) {
+      this._setUpdate();
+    }
+  }
+
+  _setUpdate() {
     this.setState((state, props) => ({
       fileName: this.props.workbook.file.name,
       workbookXML: this.props.workbook.xmlDoc,

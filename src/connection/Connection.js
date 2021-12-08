@@ -17,6 +17,16 @@ export default class Connection extends React.Component {
   }
 
   componentDidMount() {
+    this._setUpdate();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.connection !== this.props.connection) {
+      this._setUpdate();
+    }
+  }
+
+  _setUpdate() {
     this.setState((state, props) => ({
       connectionXML: this.props.connection,
       dbName: this.props.connection.getAttribute("dbname"),

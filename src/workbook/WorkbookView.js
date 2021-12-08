@@ -18,8 +18,8 @@ export default class WorkbookView extends React.Component {
 
   loaded() {
     const parser = new DOMParser();
-
     const file = this.state.file;
+
     let type = file.name.split(".").slice(-1)[0];
     if (type === "twbx") {
       const zip = new JSZip();

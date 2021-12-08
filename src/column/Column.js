@@ -17,6 +17,16 @@ export default class Column extends React.Component {
   }
 
   componentDidMount() {
+    this._setUpdate();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.column !== this.props.column) {
+      this._setUpdate();
+    }
+  }
+
+  _setUpdate() {
     this.setState((state, props) => ({
       columnXML: this.props.column,
       name: this.props.column.getAttribute("name"),
