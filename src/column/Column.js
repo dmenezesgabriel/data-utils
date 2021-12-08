@@ -24,7 +24,7 @@ export default class Column extends React.Component {
       datatype: this.props.column.getAttribute("datatype"),
       role: this.props.column.getAttribute("role"),
       type: this.props.column.getAttribute("type"),
-      calculation: this.props.column.getAttribute("calculation"),
+      calculation: this._prepareCalculation(this.props.column),
       description: this.props.column.getAttribute("description"),
       usedIn: [],
     }));
@@ -47,9 +47,16 @@ export default class Column extends React.Component {
     const name = this.state.name;
     if (name) {
       return (
-        <div>
-          <p>Column: {this.state.name}</p>
-        </div>
+        <tr>
+          <td>{this.state.name}</td>
+          <td>{this.state.caption}</td>
+          <td>{this.state.datatype}</td>
+          <td>{this.state.role}</td>
+          <td>{this.state.type}</td>
+          <td>{this.state.calculation}</td>
+          <td>{this.state.description}</td>
+          <td>{this.state.usedIn}</td>
+        </tr>
       );
     } else {
       return "";

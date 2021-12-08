@@ -114,6 +114,7 @@ export default class Workbook extends React.Component {
     if (datasources && worksheets) {
       return (
         <div>
+          <h2>{this.state.fileName}</h2>
           {datasources.map((datasource, datasourceIndex) => {
             return <Datasource key={datasourceIndex} datasource={datasource} />;
           })}
