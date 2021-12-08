@@ -1,6 +1,8 @@
 import Connection from "../connection/Connection.js";
 import Column from "../column/Column.js";
 import Details from "../layout/Details.js";
+import TextInput from "../layout/TextInput.js";
+import Label from "../layout/Label.js";
 
 import React from "react";
 
@@ -64,26 +66,26 @@ export default class Datasource extends React.Component {
     if (datasourceName) {
       return (
         <Details title={datasourceName}>
-          <form action="">
+          <form className="bg-white border rounded px-8 pt-6 pb-8 mb-4">
             <div>
               <div>
-                <label htmlFor="name">Name: </label>
-                <input type="text" name="name" id="" defaultValue={this.state.name} />
+                <Label htmlFor="name">Name</Label>
+                <TextInput name="name" id="" defaultValue={this.state.name} />
               </div>
               <div>
-                <label htmlFor="version">Version: </label>
-                <input type="text" name="version" id="" defaultValue={this.state.version} />
+                <Label htmlFor="version">Version</Label>
+                <TextInput type="text" name="version" id="" defaultValue={this.state.version} />
               </div>
               <div>
-                <label htmlFor="caption">Caption: </label>
-                <input type="text" name="caption" id="" defaultValue={this.state.caption} />
+                <Label htmlFor="caption">Caption</Label>
+                <TextInput type="text" name="caption" id="" defaultValue={this.state.caption} />
               </div>
             </div>
           </form>
           {connections.map((connection, connectionIndex) => {
             return <Connection key={connectionIndex} connection={connection} />;
           })}
-          <h4>Columns</h4>
+          <h4 className="my-2">Columns</h4>
 
           <table className="table-fixed">
             <thead className="bg-gray-50">

@@ -1,4 +1,6 @@
 import React from "react";
+import TextInput from "../layout/TextInput.js";
+import Label from "../layout/Label.js";
 
 export default class Connection extends React.Component {
   constructor(props) {
@@ -47,10 +49,10 @@ export default class Connection extends React.Component {
     if (connectionClass && dbName) {
       return (
         <section>
-          <h4>Connection</h4>
+          <h4 className="my-2">Connection</h4>
           <form action="">
-            <label htmlFor="dbName">DB Name: </label>
-            <input type="text" name="dbName" id="" defaultValue={this.state.dbName} />
+            <Label htmlFor="dbName">DB Name: </Label>
+            <TextInput type="text" name="dbName" id="" defaultValue={this.state.dbName} />
           </form>
         </section>
       );

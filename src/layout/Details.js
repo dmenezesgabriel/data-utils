@@ -13,13 +13,12 @@ export default class Details extends React.Component {
   render() {
     const opened = this.state.opened;
     return (
-      <details className="bg-white mb-3 p-3 rounded shadow-md" onClick={(event) => this.handleClick(event)}>
+      <details className="bg-white mb-3 p-3 rounded border" onClick={(event) => this.handleClick(event)}>
         <summary>
           <h3>{this.props.title}</h3>
           <span className={`icon ${opened ? "transform rotate-180" : ""}`}>👇</span>
         </summary>
-
-        {this.props.children}
+        <div className="mt-4">{this.props.children}</div>
       </details>
     );
   }
