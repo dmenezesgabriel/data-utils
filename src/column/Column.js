@@ -1,14 +1,33 @@
-export default class Column {
-  constructor(columnXML) {
-    this._columnXML = columnXML;
-    this._name = columnXML.getAttribute("name");
-    this._caption = columnXML.getAttribute("caption");
-    this._datatype = columnXML.getAttribute("datatype");
-    this._role = columnXML.getAttribute("role");
-    this._type = columnXML.getAttribute("type");
-    this._calculation = this._prepareCalculation(this._columnXML);
-    this._description = columnXML.getAttribute("description");
-    this._usedIn = [];
+import React from "react";
+
+export default class Column extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      columnXML: null,
+      name: null,
+      caption: null,
+      datatype: null,
+      role: null,
+      type: null,
+      calculation: null,
+      description: null,
+      usedIn: [],
+    };
+  }
+
+  componentDidMount() {
+    this.setState((state, props) => ({
+      columnXML: this.props.column,
+      name: this.props.column.getAttribute("name"),
+      caption: this.props.column.getAttribute("caption"),
+      datatype: this.props.column.getAttribute("datatype"),
+      role: this.props.column.getAttribute("role"),
+      type: this.props.column.getAttribute("type"),
+      calculation: this.props.column.getAttribute("calculation"),
+      description: this.props.column.getAttribute("description"),
+      usedIn: [],
+    }));
   }
 
   _prepareCalculation(columnXML) {
@@ -24,58 +43,16 @@ export default class Column {
     this._usedIn.push(worksheetName);
   }
 
-  get name() {
-    return this._name;
-  }
-
-  set name(name) {
-    return (this._name = name);
-  }
-
-  get caption() {
-    return this._caption;
-  }
-
-  set caption(caption) {
-    return (this._caption = caption);
-  }
-  get datatype() {
-    return this._datatype;
-  }
-
-  set datatype(datatype) {
-    return (this._datatype = datatype);
-  }
-
-  get role() {
-    return this._role;
-  }
-
-  set role(role) {
-    return (this._role = role);
-  }
-
-  get calculation() {
-    return this._calculation;
-  }
-
-  set calculation(calculation) {
-    return (this._calculation = calculation);
-  }
-
-  get description() {
-    return this._description;
-  }
-
-  set description(description) {
-    return (this._description = description);
-  }
-
-  get usedIn() {
-    return this._usedIn;
-  }
-
-  set usedIn(usedIn) {
-    return (this._usedIn = usedIn);
+  render() {
+    const name = this.state.name;
+    if (name) {
+      return (
+        <div>
+          <p>Column: {this.state.name}</p>
+        </div>
+      );
+    } else {
+      return "";
+    }
   }
 }

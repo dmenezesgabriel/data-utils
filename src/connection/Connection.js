@@ -9,12 +9,13 @@ export default class Connection extends React.Component {
       server: null,
       username: null,
       authentication: null,
-      class: null,
+      className: null,
       schema: null,
       service: null,
       port: null,
     };
   }
+
   componentDidMount() {
     this.setState((state, props) => ({
       connectionXML: this.props.connection,
@@ -22,7 +23,7 @@ export default class Connection extends React.Component {
       server: this.props.connection.getAttribute("server"),
       username: this.props.connection.getAttribute("username"),
       authentication: this.props.connection.getAttribute("authentication"),
-      class: this.props.connection.getAttribute("class"),
+      className: this.props.connection.getAttribute("class"),
       schema: this.props.connection.getAttribute("schema"),
       service: this.props.connection.getAttribute("service"),
       port: this.props.connection.getAttribute("port"),
@@ -30,7 +31,7 @@ export default class Connection extends React.Component {
   }
 
   render() {
-    const connectionClass = this.state.class;
+    const connectionClass = this.state.className;
     if (connectionClass) {
       return (
         <div>
