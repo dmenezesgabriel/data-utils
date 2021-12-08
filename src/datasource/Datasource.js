@@ -30,9 +30,7 @@ export default class Datasource extends React.Component {
     let connections = [];
     let connectionsElements = datasourceXML.getElementsByTagName("connection");
     for (let index = 0; index < connectionsElements.length; index++) {
-      // Connection
-      let connection = new Connection(connectionsElements[index]);
-      connections.push(connection);
+      connections.push(connectionsElements[index]);
     }
     return connections;
   }
@@ -50,6 +48,7 @@ export default class Datasource extends React.Component {
 
   render() {
     const datasourceName = this.state.name;
+    const connections = this.state.connections;
 
     if (datasourceName) {
       return (
@@ -57,6 +56,9 @@ export default class Datasource extends React.Component {
           <p>{this.state.name}</p>
           <p>{this.state.version}</p>
           <p>{this.state.caption}</p>
+          {connections.map((connection, connectionIndex) => {
+            return <Connection key={connectionIndex} connection={connection} />;
+          })}
         </div>
       );
     } else {
