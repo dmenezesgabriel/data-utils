@@ -125,7 +125,7 @@ export default class Workbook extends React.Component {
         </div>
       );
     } else {
-      return "";
+      return null;
     }
   }
 }

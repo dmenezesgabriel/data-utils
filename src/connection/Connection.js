@@ -40,12 +40,12 @@ export default class Connection extends React.Component {
           <h4>Connection</h4>
           <form action="">
             <label htmlFor="dbName">DB Name: </label>
-            <input type="text" name="dbName" id="" value={this.state.dbName} />
+            <input type="text" name="dbName" id="" defaultValue={this.state.dbName} />
           </form>
         </div>
       );
     } else {
-      return "";
+      return null;
     }
   }
 }

@@ -57,15 +57,15 @@ export default class Datasource extends React.Component {
             <div>
               <div>
                 <label htmlFor="name">Name: </label>
-                <input type="text" name="name" id="" value={this.state.name} />
+                <input type="text" name="name" id="" defaultValue={this.state.name} />
               </div>
               <div>
                 <label htmlFor="version">Version: </label>
-                <input type="text" name="version" id="" value={this.state.version} />
+                <input type="text" name="version" id="" defaultValue={this.state.version} />
               </div>
               <div>
                 <label htmlFor="caption">Caption: </label>
-                <input type="text" name="caption" id="" value={this.state.caption} />
+                <input type="text" name="caption" id="" defaultValue={this.state.caption} />
               </div>
             </div>
           </form>
@@ -95,7 +95,7 @@ export default class Datasource extends React.Component {
         </div>
       );
     } else {
-      return "";
+      return null;
     }
   }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import JSZip from "jszip";
 
 import FileUpload from "../file/FileUpload.js";
 import Workbook from "./Workbook.js";
@@ -19,7 +20,13 @@ export default class WorkbookView extends React.Component {
   loaded() {
     const reader = new FileReader();
     const parser = new DOMParser();
+    const zip = new JSZip();
+    let type = this.file.name.split(".").slice(-1)[0];
+    console.log(type);
 
+    if (type === "twbx") {
+      console.log(type);
+    }
     reader.onload = (event) => {
       let xmlDoc = parser.parseFromString(event.target.result, "text/xml");
       this.setState({ xmlDoc: xmlDoc });

@@ -59,7 +59,7 @@ export default class Column extends React.Component {
         </tr>
       );
     } else {
-      return "";
+      return null;
     }
   }
 }
