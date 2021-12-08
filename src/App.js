@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import WorkbookView from "./workbook/WorkbookView.js";
 import React from "react";
 import "./App.css";
