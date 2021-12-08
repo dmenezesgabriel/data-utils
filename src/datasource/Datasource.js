@@ -88,25 +88,27 @@ export default class Datasource extends React.Component {
             return <Connection key={connectionIndex} connection={connection} />;
           })}
           <h4>Columns</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Caption</th>
-                <th>Datatype</th>
-                <th>Role</th>
-                <th>Type</th>
-                <th>Calculation</th>
-                <th>Description</th>
-                <th>Used In</th>
-              </tr>
-            </thead>
-            <tbody>
-              {columns.map((column, columnIndex) => {
-                return <Column key={columnIndex} column={column} />;
-              })}
-            </tbody>
-          </table>
+          <div className="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Caption</th>
+                  <th>Datatype</th>
+                  <th>Role</th>
+                  <th>Type</th>
+                  <th>Calculation</th>
+                  <th>Description</th>
+                  <th>Used In</th>
+                </tr>
+              </thead>
+              <tbody>
+                {columns.map((column, columnIndex) => {
+                  return <Column key={columnIndex} column={column} />;
+                })}
+              </tbody>
+            </table>
+          </div>
         </details>
       );
     } else {

@@ -58,14 +58,14 @@ export default class Column extends React.Component {
     if (name) {
       return (
         <tr>
-          <td>{this.state.name}</td>
-          <td>{this.state.caption}</td>
-          <td>{this.state.datatype}</td>
-          <td>{this.state.role}</td>
-          <td>{this.state.type}</td>
-          <td>{this.state.calculation}</td>
-          <td>{this.state.description}</td>
-          <td>{this.state.usedIn}</td>
+          <td contenteditable="true">{this.state.name}</td>
+          <td contenteditable="true">{this.state.caption}</td>
+          <td contenteditable="true">{this.state.datatype}</td>
+          <td contenteditable="true">{this.state.role}</td>
+          <td contenteditable="true">{this.state.type}</td>
+          <td contenteditable="true">{this.state.calculation}</td>
+          <td contenteditable="true">{this.state.description}</td>
+          <td contenteditable="true">{this.state.usedIn}</td>
         </tr>
       );
     } else {

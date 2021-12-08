@@ -124,7 +124,7 @@ export default class Workbook extends React.Component {
     if (datasources && worksheets) {
       return (
         <section>
-          <h2>{this.state.fileName}</h2>
+          <h2 contenteditable="true">{this.state.fileName}</h2>
           <hr />
           <details>
             <summary>
