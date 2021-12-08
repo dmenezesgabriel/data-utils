@@ -9,10 +9,6 @@ details > summary span.icon {
   margin-left: auto;
 }
 
-details[open] summary span.icon {
-  transform: rotate(180deg);
-}
-
 summary {
   display: flex;
   cursor: pointer;

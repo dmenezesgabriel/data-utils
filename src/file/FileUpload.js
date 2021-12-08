@@ -21,7 +21,7 @@ export default class FileUpload extends React.Component {
   render() {
     return (
       <div>
-        <label class="text-sm font-medium text-gray-900 block mb-2" for="twb"></label>
+        <label className="text-sm font-medium text-gray-900 block mb-2" htmlFor="twb"></label>
         <input
           className="block cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-lg"
           type="file"
