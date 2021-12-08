@@ -2,6 +2,8 @@ import React from "react";
 import JSZip from "jszip";
 
 import FileUpload from "../file/FileUpload.js";
+import MainHeading from "../layout/MainHeading.js";
+
 import Workbook from "./Workbook.js";
 
 export default class WorkbookView extends React.Component {
@@ -48,7 +50,7 @@ export default class WorkbookView extends React.Component {
     if (file && xmlDoc) {
       return (
         <div className="container mx-auto px-4">
-          <h1>Workbook</h1>
+          <MainHeading>Workbook</MainHeading>
           <FileUpload addEvent={this.add} loadedEvent={this.loaded} />
           <Workbook workbook={this.state} />
         </div>
@@ -56,6 +58,7 @@ export default class WorkbookView extends React.Component {
     } else {
       return (
         <div className="container mx-auto px-4">
+          <MainHeading>Workbook</MainHeading>
           <FileUpload addEvent={this.add} />
         </div>
       );
