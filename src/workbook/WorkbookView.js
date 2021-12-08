@@ -17,22 +17,29 @@ export default class WorkbookView extends React.Component {
   }
 
   loaded() {
-    const reader = new FileReader();
     const parser = new DOMParser();
-    const zip = new JSZip();
 
     const file = this.state.file;
     let type = file.name.split(".").slice(-1)[0];
-    console.log(type);
-
     if (type === "twbx") {
-      console.log(type);
+      const zip = new JSZip();
+      zip.loadAsync(file).then((zip) => {
+        const twbName = Object.keys(zip.files).find((file) => file.includes(".twb"));
+        const twb = zip.files[twbName];
+        twb.async("string").then((content) => {
+          if (!content) return (this.errorMessage = "No twb file found");
+          let xmlDoc = parser.parseFromString(content, "text/xml");
+          this.setState({ xmlDoc: xmlDoc });
+        });
+      });
+    } else if (type === "twb") {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        let xmlDoc = parser.parseFromString(event.target.result, "text/xml");
+        this.setState({ xmlDoc: xmlDoc });
+      };
+      reader.readAsText(file, "UTF-8");
     }
-    reader.onload = (event) => {
-      let xmlDoc = parser.parseFromString(event.target.result, "text/xml");
-      this.setState({ xmlDoc: xmlDoc });
-    };
-    reader.readAsText(file, "UTF-8");
   }
 
   render() {
