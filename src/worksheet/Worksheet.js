@@ -41,8 +41,7 @@ export default class Worksheet extends React.Component {
     if (worksheetName) {
       return (
         <div>
-          <h4>Worksheet</h4>
-          <p>{this.state.name}</p>
+          <h5>Worksheet - {this.state.name}</h5>
         </div>
       );
     } else {
