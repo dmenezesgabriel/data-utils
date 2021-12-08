@@ -8,15 +8,18 @@ export default class FileUpload extends React.Component {
   }
 
   handleChange = (event) => {
-    this.setState({ file: event.target.files[0] }, () => {
-      if (this.props.addEvent) {
-        this.props.addEvent(this.state.file);
+    let file = event.target.files[0];
+    if (file) {
+      this.setState({ file: file }, () => {
+        if (this.props.addEvent) {
+          this.props.addEvent(this.state.file);
 
-        if (this.props.loadedEvent) {
-          this.props.loadedEvent();
+          if (this.props.loadedEvent) {
+            this.props.loadedEvent();
+          }
         }
-      }
-    });
+      });
+    }
   };
 
   render() {
