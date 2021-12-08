@@ -21,7 +21,15 @@ export default class FileUpload extends React.Component {
   render() {
     return (
       <div>
-        <input type="file" onChange={(event) => this.handleChange(event)} />
+        <label class="text-sm font-medium text-gray-900 block mb-2" for="twb">
+          Upload file
+        </label>
+        <input
+          className="block w-full cursor-pointer bg-gray-50 border border-gray-300 text-gray-900 focus:outline-none focus:border-transparent text-sm rounded-lg"
+          type="file"
+          name="twb"
+          onChange={(event) => this.handleChange(event)}
+        />
       </div>
     );
   }
