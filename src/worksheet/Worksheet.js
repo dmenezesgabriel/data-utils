@@ -42,7 +42,7 @@ export default class Worksheet extends React.Component {
       return (
         <div>
           <h5>
-            Worksheet - <span contenteditable="true">{this.state.name}</span>
+            Worksheet - <span contentEditable="true">{this.state.name}</span>
           </h5>
         </div>
       );

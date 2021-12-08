@@ -64,7 +64,7 @@ export default class Datasource extends React.Component {
         <details>
           <summary>
             <h3>Datasource - {datasourceName}</h3>
-            <span class="icon" role="img" aria-label="collapse">
+            <span className="icon" role="img" aria-label="collapse">
               👇
             </span>
           </summary>

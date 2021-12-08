@@ -124,12 +124,12 @@ export default class Workbook extends React.Component {
     if (datasources && worksheets) {
       return (
         <section>
-          <h2 contenteditable="true">{this.state.fileName}</h2>
+          <h2 contentEditable="true">{this.state.fileName}</h2>
           <hr />
           <details>
             <summary>
               <h3>Datasources</h3>
-              <span class="icon" role="img" aria-label="collapse">
+              <span className="icon" role="img" aria-label="collapse">
                 👇
               </span>
             </summary>
@@ -140,7 +140,7 @@ export default class Workbook extends React.Component {
           <details>
             <summary>
               <h3>Worksheets</h3>
-              <span class="icon" role="img" aria-label="collapse">
+              <span className="icon" role="img" aria-label="collapse">
                 👇
               </span>
             </summary>
