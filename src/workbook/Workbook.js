@@ -125,13 +125,29 @@ export default class Workbook extends React.Component {
       return (
         <section>
           <h2>{this.state.fileName}</h2>
-          {datasources.map((datasource, datasourceIndex) => {
-            return <Datasource key={datasourceIndex} datasource={datasource} />;
-          })}
-          {/* Worksheets */}
-          {worksheets.map((worksheet, worksheetIndex) => {
-            return <Worksheet key={worksheetIndex} worksheet={worksheet} />;
-          })}
+          <hr />
+          <details>
+            <summary>
+              <h3>Datasources</h3>
+              <span class="icon" role="img" aria-label="collapse">
+                👇
+              </span>
+            </summary>
+            {datasources.map((datasource, datasourceIndex) => {
+              return <Datasource key={datasourceIndex} datasource={datasource} />;
+            })}
+          </details>
+          <details>
+            <summary>
+              <h3>Worksheets</h3>
+              <span class="icon" role="img" aria-label="collapse">
+                👇
+              </span>
+            </summary>
+            {worksheets.map((worksheet, worksheetIndex) => {
+              return <Worksheet key={worksheetIndex} worksheet={worksheet} />;
+            })}
+          </details>
         </section>
       );
     } else {
