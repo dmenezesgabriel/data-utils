@@ -58,30 +58,14 @@ export default class Column extends React.Component {
     if (name) {
       return (
         <tr>
-          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
-            {this.state.name}
-          </td>
-          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
-            {this.state.caption}
-          </td>
-          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
-            {this.state.datatype}
-          </td>
-          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
-            {this.state.role}
-          </td>
-          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
-            {this.state.type}
-          </td>
-          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
-            {this.state.calculation}
-          </td>
-          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
-            {this.state.description}
-          </td>
-          <td className="px-6 py-4 text-sm text-gray-500" contentEditable="true">
-            {this.state.usedIn}
-          </td>
+          <td className="px-6 py-4 text-sm text-gray-500">{this.state.name}</td>
+          <td className="px-6 py-4 text-sm text-gray-500">{this.state.caption}</td>
+          <td className="px-6 py-4 text-sm text-gray-500">{this.state.datatype}</td>
+          <td className="px-6 py-4 text-sm text-gray-500">{this.state.role}</td>
+          <td className="px-6 py-4 text-sm text-gray-500">{this.state.type}</td>
+          <td className="px-6 py-4 text-sm text-gray-500">{this.state.calculation}</td>
+          <td className="px-6 py-4 text-sm text-gray-500">{this.state.description}</td>
+          <td className="px-6 py-4 text-sm text-gray-500">{this.state.usedIn}</td>
         </tr>
       );
     } else {

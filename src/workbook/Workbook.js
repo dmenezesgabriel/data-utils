@@ -17,7 +17,13 @@ export default class Workbook extends React.Component {
       dashboards: null,
       datasources: null,
       worksheets: null,
+      worksheetsDatasources: [],
     };
+    this._setUpdate = this._setUpdate.bind(this);
+    this._prepareDashboards = this._prepareDashboards.bind(this);
+    this._prepareDatasources = this._prepareDatasources.bind(this);
+    this._prepareWorksheets = this._prepareWorksheets.bind(this);
+    this._addWorksheetDeps = this._addWorksheetDeps.bind(this);
   }
 
   componentDidMount() {
@@ -77,16 +83,10 @@ export default class Workbook extends React.Component {
     return worksheets;
   }
 
-  _prepareDatasourceIndex(datasources) {
-    // TODO
-    // Replace for a WeakRef "dict"
-    let datasourceIndexes = {};
-    for (let datasourceIndex in datasources) {
-      let datasource = datasources[datasourceIndex];
-
-      datasourceIndexes[datasource.name] = datasource;
-    }
-    return datasourceIndexes;
+  _addWorksheetDeps(worksheetName, datasourceDeps) {
+    this.setState({ worksheetsDatasources: this.state.worksheetsDatasources.concat({ worksheetName: datasourceDeps }) }, () => {
+      console.log(this.state.worksheetsDatasources);
+    });
   }
 
   _checkFieldsUsage(worksheets, datasourcesIndex) {
@@ -129,8 +129,7 @@ export default class Workbook extends React.Component {
         <section>
           <div className="mb-4 border-b-2">
             <h2 className="text-2xl mb-4">
-              <span>✏️</span>
-              <span contentEditable="true">{this.state.fileName}</span>
+              <span>{this.state.fileName}</span>
             </h2>
           </div>
           <Details title="Datasources" icon={<Database />}>
@@ -140,7 +139,7 @@ export default class Workbook extends React.Component {
           </Details>
           <Details title="Worksheets" icon={<FileText />}>
             {worksheets.map((worksheet, worksheetIndex) => {
-              return <Worksheet key={worksheetIndex} worksheet={worksheet} />;
+              return <Worksheet key={worksheetIndex} worksheet={worksheet} addDatasourceDeps={this._addWorksheetDeps} />;
             })}
           </Details>
         </section>

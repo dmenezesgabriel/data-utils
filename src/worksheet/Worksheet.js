@@ -11,11 +11,30 @@ export default class Worksheet extends React.Component {
   }
 
   componentDidMount() {
-    this.setState((state, props) => ({
-      datasourceXML: this.props.worksheet,
-      name: this.props.worksheet.getAttribute("name"),
-      datasourceDependencies: this._prepareDatasourceDependencies(this.props.worksheet),
-    }));
+    this._setUpdate();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.workbook !== this.props.workbook) {
+      this._setUpdate();
+    }
+  }
+
+  _setUpdate() {
+    this.setState(
+      (state, props) => ({
+        datasourceXML: this.props.worksheet,
+        name: this.props.worksheet.getAttribute("name"),
+        datasourceDependencies: this._prepareDatasourceDependencies(this.props.worksheet),
+      }),
+      () => this._DatasourceDepsToParent()
+    );
+  }
+
+  _DatasourceDepsToParent() {
+    if (this.props.addDatasourceDeps) {
+      this.props.addDatasourceDeps(this.state.name, this.state.datasourceDependencies);
+    }
   }
 
   _prepareDatasourceDependencies(worksheetXML) {
@@ -42,7 +61,7 @@ export default class Worksheet extends React.Component {
       return (
         <div>
           <h5>
-            Worksheet - <span contentEditable="true">{this.state.name}</span>
+            Worksheet - <span>{this.state.name}</span>
           </h5>
         </div>
       );
