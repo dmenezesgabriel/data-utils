@@ -85,27 +85,29 @@ export default class Datasource extends React.Component {
           {connections.map((connection, connectionIndex) => {
             return <Connection key={connectionIndex} connection={connection} />;
           })}
-          <h4 className="my-2">Columns</h4>
+          <div className="bg-white border rounded px-8 pt-6 pb-8 mb-4">
+            <h4 className="my-2">Columns</h4>
 
-          <table className="table-fixed">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-2 text-xs text-gray-500">Name</th>
-                <th className="px-6 py-2 text-xs text-gray-500">Caption</th>
-                <th className="px-6 py-2 text-xs text-gray-500">Datatype</th>
-                <th className="px-6 py-2 text-xs text-gray-500">Role</th>
-                <th className="px-6 py-2 text-xs text-gray-500">Type</th>
-                <th className="px-6 py-2 text-xs text-gray-500">Calculation</th>
-                <th className="px-6 py-2 text-xs text-gray-500">Description</th>
-                <th className="px-6 py-2 text-xs text-gray-500">Used In</th>
-              </tr>
-            </thead>
-            <tbody className="bg-white">
-              {columns.map((column, columnIndex) => {
-                return <Column key={columnIndex} column={column} />;
-              })}
-            </tbody>
-          </table>
+            <table className="table-fixed">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-2 text-xs text-gray-500">Name</th>
+                  <th className="px-6 py-2 text-xs text-gray-500">Caption</th>
+                  <th className="px-6 py-2 text-xs text-gray-500">Datatype</th>
+                  <th className="px-6 py-2 text-xs text-gray-500">Role</th>
+                  <th className="px-6 py-2 text-xs text-gray-500">Type</th>
+                  <th className="px-6 py-2 text-xs text-gray-500">Calculation</th>
+                  <th className="px-6 py-2 text-xs text-gray-500">Description</th>
+                  <th className="px-6 py-2 text-xs text-gray-500">Used In</th>
+                </tr>
+              </thead>
+              <tbody className="bg-white">
+                {columns.map((column, columnIndex) => {
+                  return <Column key={columnIndex} column={column} />;
+                })}
+              </tbody>
+            </table>
+          </div>
         </Details>
       );
     } else {

@@ -49,11 +49,13 @@ export default class Connection extends React.Component {
     if (connectionClass && dbName) {
       return (
         <section>
-          <h4 className="my-2">Connection</h4>
-          <form action="">
-            <Label htmlFor="dbName">DB Name: </Label>
-            <TextInput type="text" name="dbName" id="" defaultValue={this.state.dbName} />
-          </form>
+          <div className="bg-white border rounded px-8 pt-6 pb-8 mb-4">
+            <h4 className="my-2">Connection</h4>
+            <form action="">
+              <Label htmlFor="dbName">DB Name: </Label>
+              <TextInput type="text" name="dbName" id="" defaultValue={this.state.dbName} />
+            </form>
+          </div>
         </section>
       );
     } else {
