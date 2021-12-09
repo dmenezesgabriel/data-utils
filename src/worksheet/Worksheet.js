@@ -8,6 +8,9 @@ export default class Worksheet extends React.Component {
       name: null,
       datasourceDependencies: null,
     };
+    this._setUpdate = this._setUpdate.bind(this);
+    this._DatasourceDepsToParent = this._DatasourceDepsToParent.bind(this);
+    this._prepareDatasourceDependencies = this._prepareDatasourceDependencies.bind(this);
   }
 
   componentDidMount() {
