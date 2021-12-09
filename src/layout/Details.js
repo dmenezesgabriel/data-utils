@@ -7,7 +7,9 @@ export default class Details extends React.Component {
   }
 
   handleClick(event) {
-    this.setState((state, props) => ({ opened: !state.opened }));
+    if (event.target) {
+      this.setState((state, props) => ({ opened: !state.opened }));
+    }
   }
 
   render() {
