@@ -15,6 +15,7 @@ export default class Details extends React.Component {
     return (
       <details className="bg-white mb-3 p-3 rounded border" onClick={(event) => this.handleClick(event)}>
         <summary>
+          <span className="mx-2">{this.props.icon}</span>
           <h3>{this.props.title}</h3>
           <span className={`icon ${opened ? "transform rotate-180" : ""}`}>👇</span>
         </summary>

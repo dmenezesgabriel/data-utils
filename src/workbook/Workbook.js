@@ -1,6 +1,7 @@
 import Datasource from "../datasource/Datasource.js";
 import Worksheet from "../worksheet/Worksheet.js";
 import Details from "../layout/Details.js";
+import { Database, FileText } from "react-feather";
 
 import React from "react";
 
@@ -132,13 +133,12 @@ export default class Workbook extends React.Component {
               <span contentEditable="true">{this.state.fileName}</span>
             </h2>
           </div>
-
-          <Details title="Datasources">
+          <Details title="Datasources" icon={<Database />}>
             {datasources.map((datasource, datasourceIndex) => {
               return <Datasource key={datasourceIndex} datasource={datasource} />;
             })}
           </Details>
-          <Details title="Worksheets">
+          <Details title="Worksheets" icon={<FileText />}>
             {worksheets.map((worksheet, worksheetIndex) => {
               return <Worksheet key={worksheetIndex} worksheet={worksheet} />;
             })}
