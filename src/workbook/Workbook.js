@@ -84,12 +84,9 @@ export default class Workbook extends React.Component {
   }
 
   _addWorksheetDeps(worksheetName, datasourceDeps) {
-    this.setState(
-      { worksheetsDatasources: this.state.worksheetsDatasources.concat({ worksheetName: worksheetName, datasourceDeps: datasourceDeps }) },
-      () => {
-        console.log(this.state.worksheetsDatasources);
-      }
-    );
+    this.setState({
+      worksheetsDatasources: this.state.worksheetsDatasources.concat({ worksheetName: worksheetName, datasourceDeps: datasourceDeps }),
+    });
   }
 
   _checkFieldsUsage(worksheets, datasourcesIndex) {
@@ -126,6 +123,7 @@ export default class Workbook extends React.Component {
   render() {
     const datasources = this.state.datasources;
     const worksheets = this.state.worksheets;
+    const worksheetsDatasources = this.state.worksheetsDatasources;
 
     if (datasources && worksheets) {
       return (
@@ -137,7 +135,7 @@ export default class Workbook extends React.Component {
           </div>
           <Details title="Datasources" icon={<Database />}>
             {datasources.map((datasource, datasourceIndex) => {
-              return <Datasource key={datasourceIndex} datasource={datasource} />;
+              return <Datasource key={datasourceIndex} datasource={datasource} worksheetDatasources={worksheetsDatasources} />;
             })}
           </Details>
           <Details title="Worksheets" icon={<FileText />}>

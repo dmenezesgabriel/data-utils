@@ -17,6 +17,10 @@ export default class Datasource extends React.Component {
       connections: null,
       columns: null,
     };
+    this._setUpdate = this._setUpdate.bind(this);
+    this._prepareConnections = this._prepareConnections.bind(this);
+    this._prepareColumns = this._prepareColumns.bind(this);
+    this._filterWorksheets = this._filterWorksheets.bind(this);
   }
 
   componentDidMount() {
@@ -58,10 +62,23 @@ export default class Datasource extends React.Component {
     return columns;
   }
 
+  _filterWorksheets() {
+    const worksheetDatasources = this.props.worksheetDatasources;
+    let relatedWorksheets = [];
+    worksheetDatasources.map((worksheet, worksheetIndex) => {
+      let thisDatasource = worksheet.datasourceDeps.filter((element) => {
+        return element.name === this.state.name;
+      });
+      relatedWorksheets.push({ name: worksheet.worksheetName, datasourceDeps: thisDatasource });
+    });
+    return relatedWorksheets;
+  }
+
   render() {
     const datasourceName = this.state.name;
     const connections = this.state.connections;
     const columns = this.state.columns;
+    const worksheetDatasources = this._filterWorksheets();
 
     if (datasourceName) {
       return (
@@ -103,7 +120,7 @@ export default class Datasource extends React.Component {
                 </thead>
                 <tbody className="bg-white">
                   {columns.map((column, columnIndex) => {
-                    return <Column key={columnIndex} column={column} />;
+                    return <Column key={columnIndex} column={column} worksheetDatasources={worksheetDatasources} />;
                   })}
                 </tbody>
               </table>

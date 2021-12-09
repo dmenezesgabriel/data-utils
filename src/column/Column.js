@@ -12,8 +12,11 @@ export default class Column extends React.Component {
       type: null,
       calculation: null,
       description: null,
-      usedIn: [],
+      usedIn: null,
     };
+    this._setUpdate = this._setUpdate.bind(this);
+    this._prepareCalculation = this._prepareCalculation.bind(this);
+    this._addUsedIn = this._addUsedIn.bind(this);
   }
 
   componentDidMount() {
@@ -21,7 +24,8 @@ export default class Column extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.column !== this.props.column) {
+    let condition = prevProps.column !== this.props.column || prevProps.worksheetDatasources !== this.props.worksheetDatasources;
+    if (condition) {
       this._setUpdate();
     }
   }
@@ -36,7 +40,7 @@ export default class Column extends React.Component {
       type: this.props.column.getAttribute("type"),
       calculation: this._prepareCalculation(this.props.column),
       description: this.props.column.getAttribute("description"),
-      usedIn: [],
+      usedIn: this._addUsedIn(),
     }));
   }
 
@@ -49,8 +53,13 @@ export default class Column extends React.Component {
     return formula;
   }
 
-  addUsedIn(worksheetName) {
-    this._usedIn.push(worksheetName);
+  _addUsedIn() {
+    let usedIn = [];
+    const worksheetDatasources = this.props.worksheetDatasources;
+    worksheetDatasources.map((worksheet, worksheetIndex) => {
+      console.log(worksheet);
+    });
+    return [];
   }
 
   render() {
