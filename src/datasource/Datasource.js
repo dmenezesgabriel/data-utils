@@ -69,7 +69,7 @@ export default class Datasource extends React.Component {
       let thisDatasource = worksheet.datasourceDeps.filter((element) => {
         return element.name === this.state.name;
       });
-      relatedWorksheets.push({ name: worksheet.worksheetName, datasourceDeps: thisDatasource });
+      relatedWorksheets.push({ name: worksheet.worksheetName, datasourceDeps: thisDatasource[0] });
     });
     return relatedWorksheets;
   }
@@ -104,7 +104,7 @@ export default class Datasource extends React.Component {
           })}
           <div className="bg-white border rounded px-8 pt-6 pb-8 mb-4">
             <h4 className="my-2">Columns</h4>
-            <div className="table-wrapper overflow-y-auto">
+            <div className="table-wrapper overflow-y-auto overflow-x-hidden">
               <table className="table-fixed">
                 <thead className="bg-gray-50 sticky top-0">
                   <tr>

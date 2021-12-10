@@ -57,9 +57,17 @@ export default class Column extends React.Component {
     let usedIn = [];
     const worksheetDatasources = this.props.worksheetDatasources;
     worksheetDatasources.map((worksheet, worksheetIndex) => {
-      console.log(worksheet);
+      const datasourceInfo = worksheet.datasourceDeps;
+      if (datasourceInfo) {
+        let used = datasourceInfo.columns.includes(this.state.name);
+
+        if (used) {
+          usedIn.push(worksheet.name);
+        }
+      }
     });
-    return [];
+
+    return usedIn;
   }
 
   render() {
