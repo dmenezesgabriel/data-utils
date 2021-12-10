@@ -77,12 +77,14 @@ export default class Datasource extends React.Component {
   render() {
     const datasourceName = this.state.name;
     const connections = this.state.connections;
+    const caption = this.state.caption;
     const columns = this.state.columns;
+
     const worksheetDatasources = this._filterWorksheets();
 
     if (datasourceName) {
       return (
-        <Details title={datasourceName}>
+        <Details title={`${caption} - ${datasourceName}`}>
           <form className="bg-white border rounded px-8 pt-6 pb-8 mb-4">
             <div>
               <div>

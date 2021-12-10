@@ -61,13 +61,7 @@ export default class Worksheet extends React.Component {
   render() {
     const worksheetName = this.state.name;
     if (worksheetName) {
-      return (
-        <div>
-          <h5>
-            Worksheet - <span>{this.state.name}</span>
-          </h5>
-        </div>
-      );
+      return <li>{this.state.name}</li>;
     } else {
       return "";
     }

@@ -139,9 +139,11 @@ export default class Workbook extends React.Component {
             })}
           </Details>
           <Details title="Worksheets" icon={<FileText />}>
-            {worksheets.map((worksheet, worksheetIndex) => {
-              return <Worksheet key={worksheetIndex} worksheet={worksheet} addDatasourceDeps={this._addWorksheetDeps} />;
-            })}
+            <ul>
+              {worksheets.map((worksheet, worksheetIndex) => {
+                return <Worksheet key={worksheetIndex} worksheet={worksheet} addDatasourceDeps={this._addWorksheetDeps} />;
+              })}
+            </ul>
           </Details>
         </section>
       );
