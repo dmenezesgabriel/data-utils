@@ -65,7 +65,7 @@ export default class Column extends React.Component {
         }
       }
     }
-    if (usedIn.length < 1 || usedIn == undefined) {
+    if (usedIn.length < 1 || usedIn === undefined) {
       return "unused";
     } else {
       return usedIn;
