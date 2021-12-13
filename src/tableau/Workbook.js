@@ -124,6 +124,7 @@ export default class Workbook extends React.Component {
   render() {
     const datasources = this.state.datasources;
     const worksheets = this.state.worksheets;
+    const dashboards = this.state.dashboards;
     const worksheetsDatasources = this.state.worksheetsDatasources;
 
     if (datasources && worksheets) {
@@ -133,6 +134,17 @@ export default class Workbook extends React.Component {
             <h2 className="text-2xl mb-4">
               <span>{this.state.fileName}</span>
             </h2>
+            <div className="flex flex-row">
+              <div className="flex flex-col border rounded text-center m-2 p-2">
+                {worksheets.length} <span>Worksheets</span>
+              </div>
+              <div className="flex flex-col border rounded text-center m-2 p-2">
+                {datasources.length} <span>Datasources</span>
+              </div>
+              <div className="flex flex-col border rounded text-center m-2 p-2">
+                {dashboards.length} <span>Dashboards</span>
+              </div>
+            </div>
           </div>
           <Details title="Datasources" icon={<Database />}>
             {datasources.map((datasource, datasourceIndex) => {
