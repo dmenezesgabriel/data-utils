@@ -86,6 +86,14 @@ export default class Datasource extends React.Component {
     if (datasourceName) {
       return (
         <Details title={`${caption} - ${datasourceName}`}>
+          <div className="flex flex-row">
+            <div className="flex flex-col border rounded text-center m-2 p-2">
+              {connections.length} <span>Connections</span>
+            </div>
+            <div className="flex flex-col border rounded text-center m-2 p-2">
+              {columns.length} <span>Columns</span>
+            </div>
+          </div>
           <form className="bg-white rounded px-8 pt-6 pb-8 mb-4">
             <div>
               <div>
