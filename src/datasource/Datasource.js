@@ -86,7 +86,7 @@ export default class Datasource extends React.Component {
     if (datasourceName) {
       return (
         <Details title={`${caption} - ${datasourceName}`}>
-          <form className="bg-white border rounded px-8 pt-6 pb-8 mb-4">
+          <form className="bg-white rounded px-8 pt-6 pb-8 mb-4">
             <div>
               <div>
                 <Label htmlFor="name">Name</Label>
@@ -105,10 +105,10 @@ export default class Datasource extends React.Component {
           {connections.map((connection, connectionIndex) => {
             return <Connection key={connectionIndex} connection={connection} />;
           })}
-          <div className="bg-white border-collapse border rounded px-8 pt-6 pb-8 mb-4">
-            <h4 className="my-2">Columns</h4>
+          <div className="bg-white border rounded px-8 pt-6 pb-8 mb-4">
+            <h4 className="my-2 text-gray-400 font-bold">Columns</h4>
             <div className="table-wrapper overflow-y-auto">
-              <table className="table-fixed border-collapse border">
+              <table className="table-fixed border-separate border">
                 <thead className="bg-gray-50 sticky top-0">
                   <tr>
                     <TableHeader>Name</TableHeader>

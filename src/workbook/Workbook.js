@@ -140,7 +140,7 @@ export default class Workbook extends React.Component {
             })}
           </Details>
           <Details title="Worksheets" icon={<FileText />}>
-            <ul>
+            <ul className="list-disc list-inside">
               {worksheets.map((worksheet, worksheetIndex) => {
                 return <Worksheet key={worksheetIndex} worksheet={worksheet} addDatasourceDeps={this._addWorksheetDeps} />;
               })}
