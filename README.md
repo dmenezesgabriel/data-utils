@@ -1,5 +1,7 @@
 # Data Utils
 
+Go to [GitHub Pages Hosted App](https://dmenezesgabriel.github.io/data-utils/)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Description
