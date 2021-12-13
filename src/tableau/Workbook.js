@@ -135,13 +135,13 @@ export default class Workbook extends React.Component {
               <span>{this.state.fileName}</span>
             </h2>
             <div className="flex flex-row">
-              <div className="flex flex-col shadow-lg bg-indigo-500 rounded text-center text-white m-2 p-2">
+              <div className="flex flex-col shadow-md bg-indigo-500 rounded text-center text-white m-2 p-2">
                 {worksheets.length} <span>Worksheets</span>
               </div>
-              <div className="flex flex-col shadow-lg bg-indigo-500 rounded text-center text-white m-2 p-2">
+              <div className="flex flex-col shadow-md bg-indigo-500 rounded text-center text-white m-2 p-2">
                 {datasources.length} <span>Datasources</span>
               </div>
-              <div className="flex flex-col shadow-lg bg-indigo-500 rounded text-center text-white m-2 p-2">
+              <div className="flex flex-col shadow-md bg-indigo-500 rounded text-center text-white m-2 p-2">
                 {dashboards.length} <span>Dashboards</span>
               </div>
             </div>

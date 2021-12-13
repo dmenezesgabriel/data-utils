@@ -87,10 +87,10 @@ export default class Datasource extends React.Component {
       return (
         <Details title={`${caption} - ${datasourceName}`}>
           <div className="flex flex-row">
-            <div className="flex flex-col shadow-lg bg-indigo-500 rounded text-center text-white m-2 p-2">
+            <div className="flex flex-col shadow-md bg-indigo-500 rounded text-center text-white m-2 p-2">
               {connections.length} <span>Connections</span>
             </div>
-            <div className="flex flex-col shadow-lg bg-indigo-500 rounded text-center text-white m-2 p-2">
+            <div className="flex flex-col shadow-md bg-indigo-500 rounded text-center text-white m-2 p-2">
               {columns.length} <span>Columns</span>
             </div>
           </div>
