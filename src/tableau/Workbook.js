@@ -1,5 +1,5 @@
-import Datasource from "../datasource/Datasource.js";
-import Worksheet from "../worksheet/Worksheet.js";
+import Datasource from "./Datasource.js";
+import Worksheet from "./Worksheet.js";
 import Details from "../layout/Details.js";
 import { Database, FileText } from "react-feather";
 

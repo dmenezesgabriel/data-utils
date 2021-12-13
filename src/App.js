@@ -1,4 +1,4 @@
-import WorkbookView from "./workbook/WorkbookView.js";
+import WorkbookView from "./tableau/WorkbookView.js";
 import React from "react";
 import "./App.css";
 

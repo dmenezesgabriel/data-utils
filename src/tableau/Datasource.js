@@ -1,5 +1,5 @@
-import Connection from "../connection/Connection.js";
-import Column from "../column/Column.js";
+import Connection from "./Connection.js";
+import Column from "./Column.js";
 import Details from "../layout/Details.js";
 import TextInput from "../layout/TextInput.js";
 import Label from "../layout/Label.js";
