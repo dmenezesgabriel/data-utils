@@ -80,7 +80,7 @@ export default class Column extends React.Component {
           <td className="px-6 py-4 text-sm text-gray-500">{this.state.type}</td>
           <td className="px-6 py-4 text-sm text-gray-500">{this.state.calculation}</td>
           <td className="px-6 py-4 text-sm text-gray-500">{this.state.description}</td>
-          <td className="px-6 py-4 text-sm text-gray-500">{this.state.usedIn}</td>
+          <td className="px-6 py-4 text-sm text-gray-500">{this.state.usedIn.join(", ")}</td>
         </tr>
       );
     } else {
