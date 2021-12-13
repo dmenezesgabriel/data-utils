@@ -3,6 +3,7 @@ import Column from "../column/Column.js";
 import Details from "../layout/Details.js";
 import TextInput from "../layout/TextInput.js";
 import Label from "../layout/Label.js";
+import TableHeader from "../layout/TableHeader.js";
 
 import React from "react";
 
@@ -104,20 +105,20 @@ export default class Datasource extends React.Component {
           {connections.map((connection, connectionIndex) => {
             return <Connection key={connectionIndex} connection={connection} />;
           })}
-          <div className="bg-white border rounded px-8 pt-6 pb-8 mb-4">
+          <div className="bg-white border-collapse border rounded px-8 pt-6 pb-8 mb-4">
             <h4 className="my-2">Columns</h4>
             <div className="table-wrapper overflow-y-auto">
-              <table className="table-fixed">
+              <table className="table-fixed border-collapse border">
                 <thead className="bg-gray-50 sticky top-0">
                   <tr>
-                    <th className="px-6 py-2 text-xs text-gray-500">Name</th>
-                    <th className="px-6 py-2 text-xs text-gray-500">Caption</th>
-                    <th className="px-6 py-2 text-xs text-gray-500">Datatype</th>
-                    <th className="px-6 py-2 text-xs text-gray-500">Role</th>
-                    <th className="px-6 py-2 text-xs text-gray-500">Type</th>
-                    <th className="px-6 py-2 text-xs text-gray-500">Calculation</th>
-                    <th className="px-6 py-2 text-xs text-gray-500">Description</th>
-                    <th className="px-6 py-2 text-xs text-gray-500">Used In</th>
+                    <TableHeader>Name</TableHeader>
+                    <TableHeader>Caption</TableHeader>
+                    <TableHeader>Datatype</TableHeader>
+                    <TableHeader>Role</TableHeader>
+                    <TableHeader>Type</TableHeader>
+                    <TableHeader>Calculation</TableHeader>
+                    <TableHeader>Description</TableHeader>
+                    <TableHeader>Used In</TableHeader>
                   </tr>
                 </thead>
                 <tbody className="bg-white">

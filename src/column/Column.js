@@ -1,4 +1,5 @@
 import React from "react";
+import TableData from "../layout/TableData.js";
 
 export default class Column extends React.Component {
   constructor(props) {
@@ -73,14 +74,14 @@ export default class Column extends React.Component {
     if (name) {
       return (
         <tr>
-          <td className="px-6 py-4 text-sm text-gray-500">{this.state.name}</td>
-          <td className="px-6 py-4 text-sm text-gray-500">{this.state.caption}</td>
-          <td className="px-6 py-4 text-sm text-gray-500">{this.state.datatype}</td>
-          <td className="px-6 py-4 text-sm text-gray-500">{this.state.role}</td>
-          <td className="px-6 py-4 text-sm text-gray-500">{this.state.type}</td>
-          <td className="px-6 py-4 text-sm text-gray-500">{this.state.calculation}</td>
-          <td className="px-6 py-4 text-sm text-gray-500">{this.state.description}</td>
-          <td className="px-6 py-4 text-sm text-gray-500">{this.state.usedIn.join(", ")}</td>
+          <TableData>{this.state.name}</TableData>
+          <TableData>{this.state.caption}</TableData>
+          <TableData>{this.state.datatype}</TableData>
+          <TableData>{this.state.role}</TableData>
+          <TableData>{this.state.type}</TableData>
+          <TableData>{this.state.calculation}</TableData>
+          <TableData>{this.state.description}</TableData>
+          <TableData>{this.state.usedIn.join(", ")}</TableData>
         </tr>
       );
     } else {
