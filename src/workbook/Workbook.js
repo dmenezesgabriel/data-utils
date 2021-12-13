@@ -84,9 +84,10 @@ export default class Workbook extends React.Component {
   }
 
   _addWorksheetDeps(worksheetName, datasourceDeps) {
-    this.setState({
-      worksheetsDatasources: this.state.worksheetsDatasources.concat({ worksheetName: worksheetName, datasourceDeps: datasourceDeps }),
-    });
+    let worksheetDetails = { worksheetName: worksheetName, datasourceDeps: datasourceDeps };
+    this.setState((prevState) => ({
+      worksheetsDatasources: [...prevState.worksheetsDatasources, worksheetDetails],
+    }));
   }
 
   _checkFieldsUsage(worksheets, datasourcesIndex) {

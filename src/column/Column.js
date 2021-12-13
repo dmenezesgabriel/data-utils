@@ -59,17 +59,13 @@ export default class Column extends React.Component {
     for (let worksheet of worksheetDatasources) {
       const datasourceInfo = worksheet.datasourceDeps;
       if (datasourceInfo) {
-        let used = datasourceInfo.columns.includes(this.state.name);
+        let used = datasourceInfo.columns.includes(`[${this.state.name}]`);
         if (used) {
           usedIn.push(worksheet.name);
         }
       }
     }
-    if (usedIn.length < 1 || usedIn === undefined) {
-      return "unused";
-    } else {
-      return usedIn;
-    }
+    return usedIn;
   }
 
   render() {

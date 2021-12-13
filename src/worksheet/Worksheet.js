@@ -30,7 +30,9 @@ export default class Worksheet extends React.Component {
         name: this.props.worksheet.getAttribute("name"),
         datasourceDependencies: this._prepareDatasourceDependencies(this.props.worksheet),
       }),
-      () => this._DatasourceDepsToParent()
+      () => {
+        this._DatasourceDepsToParent();
+      }
     );
   }
 
